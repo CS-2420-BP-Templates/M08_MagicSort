@@ -78,21 +78,7 @@ void MagicSort::setupGame() {
      */
     bool MagicSort::isValidPour(int source, int destination) {
      //TODO
-         if (source < 0 || source >= bottles.size() || destination < 0 || destination >= bottles.size()) {
-             return false;
-         }
-         else if (source == destination) {
-             return false;
-         }
-         else if (bottles[source].empty()) {
-             return false;
-         }
-         else if (bottles[destination].full()) {
-             return false;
-         }
-         else if (bottles[destination].top() == bottles[source].top() || bottles[destination].top() == Color::EMPTY_COLOR) {
-             return true;
-         }
+
          return false;
     }
 
@@ -102,9 +88,6 @@ void MagicSort::setupGame() {
     void MagicSort::pour(int source, int destination) {
      //TODO
 
-        Color pouringColor = bottles[source].top();
-        bottles[source].pop();
-        bottles[destination].push(pouringColor);
 
     }
 
@@ -113,62 +96,8 @@ void MagicSort::setupGame() {
      */
     bool MagicSort::checkWin() const {
      //TODO
-        for (const Stack& bottle : bottles) {
-            if (!bottle.isComplete()) {
-                return false;
-            }
-        }
 
         return true;
     }
 
-    /*
-     * Create a game loop to iterate till checkWin() is true
-     * Have the user enter the source and destination
-     * If they are valid according to the rules, pour the source into the destination container
-     * Check to see if the user has won
-     */
-    void MagicSort::play() {
-     //TODO
-        std::cout << "Welcome to Magic Sort!\n";
-        std::cout << "Sort the liquid so each nonempty bottle "
-             << "contains only one color.\n";
-       std:: cout << "Each bottle holds up to " << CAPACITY
-             << " units.\n";
 
-        while (true) {
-            displayBottles();
-
-            if (checkWin()) {
-                std::cout << "\nCongratulations! You sorted the bottles!\n";
-                return;
-            }
-
-            int source;
-            std::cout << "\nSource bottle (1-5, or 0 to quit): ";
-
-            std::cin >> source;
-
-            if (source == 0) {
-               std:: cout << "Thanks for playing!\n";
-                return;
-            }
-            source --;
-
-            int destination;
-            std::cout << "Destination bottle (1-5): ";
-
-            std::cin >> destination;
-            destination --;
-            if (isValidPour(source, destination)) {
-                pour(source, destination);
-            }
-
-
-            if (checkWin()) {
-                displayBottles();
-                std::cout << "\nCongratulations! You sorted the bottles!\n";
-                return;
-            }
-        }
-    }

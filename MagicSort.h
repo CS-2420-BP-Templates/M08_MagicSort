@@ -23,7 +23,7 @@ public:
 
     bool checkWin() const ;
 
-    void play() ;
+
 };
 
 

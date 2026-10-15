@@ -19,12 +19,6 @@ std::string colorName(Color color) {
  */
 bool Stack::push(const Color &color) {
     //TODO
-    if (count == CAPACITY) {
-        return false;
-    }
-
-    items[count] = color;
-    count++;
     return true;
 }
 
@@ -34,12 +28,8 @@ bool Stack::push(const Color &color) {
  */
 Color Stack::pop() {
     //TODO
-    if (empty()) {
-        throw std::out_of_range("Stack is empty");
-    }
-
-    count--;
-    return items[count];
+    Color color = Color::EMPTY_COLOR;
+    return color;
 }
 
 /*
@@ -48,11 +38,7 @@ Color Stack::pop() {
  */
 Color Stack::top() const {
     //TODO
-    if (empty()) {
         return Color::EMPTY_COLOR;;
-    }
-
-    return items[count-1];
 }
 
 /*
@@ -60,7 +46,7 @@ Color Stack::top() const {
  */
 bool Stack::empty() const {
     //TODO
-    return count == 0;
+    return 0;
 }
 
 /*
@@ -68,7 +54,7 @@ bool Stack::empty() const {
  */
 bool Stack::full() const {
     //TODO
-    return count == CAPACITY;
+    return true;
 }
 
 /*
