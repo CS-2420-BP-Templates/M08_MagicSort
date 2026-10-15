@@ -6,9 +6,6 @@
 #define MAGICSORT_STACK_H
 #include <string>
 
-
-
-
 #endif //MAGICSORT_STACK_H
 const int CAPACITY = 4;
 
